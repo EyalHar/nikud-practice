@@ -1,0 +1,28 @@
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+.track {
+  flex: 1;
+  height: 8px;
+  background: var(--color-surface-alt);
+  border-radius: 999px;
+  margin: 0 16px;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  background: var(--color-primary);
+  transition: width 0.2s ease;
+}
+
+.average {
+  font-weight: 700;
+  color: var(--color-text);
+}

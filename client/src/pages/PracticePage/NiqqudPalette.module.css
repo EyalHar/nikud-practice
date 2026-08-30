@@ -1,0 +1,85 @@
+.palette {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.hint {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sectionLabel {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  letter-spacing: 0.02em;
+}
+
+.buttonRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.markButton {
+  min-width: 60px;
+  min-height: 52px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-alt);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  cursor: pointer;
+  padding: 6px 8px;
+}
+
+.markButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.markButton:hover:not(:disabled) {
+  border-color: var(--color-primary);
+}
+
+.markGlyph {
+  font-family: var(--font-hebrew-word);
+  font-size: 24px;
+}
+
+.markLabel {
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.active .markLabel {
+  color: var(--color-primary-contrast);
+}
+
+@media (max-width: 640px) {
+  .palette {
+    position: sticky;
+    bottom: 0;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    box-shadow: 0 -4px 16px rgba(43, 38, 32, 0.1);
+  }
+}

@@ -1,0 +1,11 @@
+.credit {
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 13px;
+  margin-top: 20px;
+}
+
+.credit a {
+  color: inherit;
+  text-decoration: underline;
+}

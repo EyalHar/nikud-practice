@@ -1,0 +1,138 @@
+.title {
+  font-size: 32px;
+  margin: 8px 0 4px;
+}
+
+.subtitle {
+  color: var(--color-text-muted);
+  margin: 0 0 28px;
+  font-size: 16px;
+}
+
+.modeTabs {
+  display: inline-flex;
+  background: var(--color-surface-alt);
+  border-radius: var(--radius-md);
+  padding: 4px;
+  margin-bottom: 20px;
+}
+
+.modeTab,
+.modeTabActive {
+  border: none;
+  background: transparent;
+  padding: 10px 22px;
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--color-text-muted);
+}
+
+.modeTabActive {
+  background: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: var(--shadow-sm);
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.textarea {
+  width: 100%;
+  font-family: var(--font-hebrew-word);
+  font-size: 18px;
+  line-height: 1.9;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  resize: vertical;
+}
+.textarea:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 1px;
+}
+
+.niqqudHint {
+  margin: -6px 0 0;
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.bookTypeRow {
+  display: inline-flex;
+  background: var(--color-surface-alt);
+  border-radius: var(--radius-md);
+  padding: 4px;
+  align-self: flex-start;
+}
+
+.bookType,
+.bookTypeActive {
+  border: none;
+  background: transparent;
+  padding: 8px 18px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--color-text-muted);
+}
+
+.bookTypeActive {
+  background: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: var(--shadow-sm);
+}
+
+.selectRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.select {
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  font-size: 14px;
+  min-height: 44px;
+}
+
+.preview {
+  background: var(--color-surface-alt);
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+}
+
+.previewRef {
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--color-accent);
+}
+
+.previewText {
+  font-family: var(--font-hebrew-word);
+  font-size: 19px;
+  line-height: 2;
+  margin: 0;
+}

@@ -1,0 +1,34 @@
+.headline {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  text-align: center;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.scoreValue {
+  font-size: 56px;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin: 4px 0;
+}
+
+.sourceLabel {
+  color: var(--color-text-muted);
+}
+
+.list {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 12px;
+  box-shadow: var(--shadow-sm);
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}

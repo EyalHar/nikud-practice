@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@400;500;600;700&family=Noto+Serif+Hebrew:wght@400;500;600;700&display=swap");
+
+:root {
+  --color-bg: #faf8f5;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f3f0ea;
+  --color-border: #e3ddd2;
+  --color-text: #2b2620;
+  --color-text-muted: #6f6555;
+  --color-primary: #8a5a3b;
+  --color-primary-hover: #6f4830;
+  --color-primary-contrast: #ffffff;
+  --color-accent: #2f6f5e;
+  --color-success: #2f7a4f;
+  --color-success-bg: #e7f4ea;
+  --color-danger: #b3453d;
+  --color-danger-bg: #fbeae8;
+  --color-warning-bg: #fff4e0;
+
+  --font-ui: "Noto Sans Hebrew", "Segoe UI", system-ui, sans-serif;
+  --font-hebrew-word: "Noto Serif Hebrew", "David Libre", serif;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --shadow-sm: 0 1px 2px rgba(43, 38, 32, 0.06), 0 1px 1px rgba(43, 38, 32, 0.04);
+  --shadow-md: 0 8px 24px rgba(43, 38, 32, 0.08);
+  --header-height: 64px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-ui);
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: var(--color-primary);
+}
+
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 20px 64px;
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 20px 14px 48px;
+  }
+}
