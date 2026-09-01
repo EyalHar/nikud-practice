@@ -1,36 +1,36 @@
 # nikud-practice
 
-אפליקציית תרגול ניקוד עברי אינטראקטיבית: בוחרים טקסט (מתוך ספריא או טקסט חופשי שמודבק), ומתרגלים להוסיף ניקוד למילים אות אחר אות, עם בדיקה וציון מיידיים בסוף כל מילה ובסיכום כולל בסוף התרגול.
+An interactive app for practicing Hebrew niqqud (vowel points). Pick a text — either from Sefaria or pasted in freely — and practice adding niqqud to it letter by letter, with instant feedback and a score at the end of each word, plus a full summary once you're done.
 
-## מה האפליקציה עושה
+## What it does
 
-בעמוד הראשי אפשר לבחור בין שני מצבים:
+The home page gives you two ways to start:
 
-- **בחירת מקור** — טעינת פרק מתוך תהלים או מתוך חמשת חומשי התורה (Genesis–Deuteronomy), דרך ה-API של [ספריא (Sefaria)](https://www.sefaria.org), כולל תצוגה מקדימה לפני תחילת התרגול.
-- **הדבקת טקסט** — הדבקת קטע עברי חופשי. אם הטקסט כבר מנוקד הוא משמש כפי שהוא; אם לא, הוא מנוקד אוטומטית מול שירות ה-[נקדן של דיקטא (Dicta Nakdan)](https://nakdan.dicta.org.il) לפני תחילת התרגול.
+- **Pick a source** — load a chapter from Psalms or from one of the five books of the Torah (Genesis–Deuteronomy) through the [Sefaria](https://www.sefaria.org) API, with a preview before you dive in.
+- **Paste your own text** — drop in any Hebrew passage. If it's already voweled, it's used as-is; if not, it gets run through the [Dicta Nakdan](https://nakdan.dicta.org.il) vowelization service before practice starts.
 
-לאחר מכן מתחיל תרגול מילה אחר מילה: לכל מילה מוצגות האותיות ה"עירומות" (בלי ניקוד), ובוחרים אות ומוסיפים לה ניקוד מתוך לוח סימנים (תנועות, חטפים, דגש/מפיק, שי"ן/שי"ן שמאלית). לחיצה על "בדוק" מציגה ציון למילה (אחוז אותיות נכונות) ומאפשרת להציג את הטעויות מול הניקוד הנכון. בסיום כל המילים מוצג עמוד תוצאות עם ציון כולל ופירוט לכל מילה, ואפשרות להתחיל תרגול חדש.
+Once you're in, practice goes word by word. Each word shows up "bare" (no niqqud), and you pick a letter and attach a vowel point from a marks panel — vowels, hataf vowels, dagesh/mapiq, right or left shin dot. Hit "check" and you get a score for that word (percentage of correctly voweled letters), along with a view of your mistakes against the correct niqqud. Once you've gone through every word, a results page shows your overall score with a word-by-word breakdown, and you can start a new round from there.
 
-## Tech Stack
+## Tech stack
 
 - **Frontend:** React 19, Vite, React Router v7, CSS Modules, oxlint
 - **Backend:** Node.js, Express 5, express-rate-limit, cors, dotenv, nodemon (dev)
-- **שירותים חיצוניים:** Sefaria API (טקסטים מקוריים), Dicta Nakdan API (ניקוד אוטומטי)
+- **External services:** Sefaria API (source texts), Dicta Nakdan API (automatic vowelization)
 
-## תכונות עיקריות
+## Features
 
-- שני מקורות טקסט: מקור מוכן מתוך ספריא (תהלים / תורה, לפי ספר ופרק), או טקסט חופשי מודבק
-- זיהוי אוטומטי אם הטקסט המודבק כבר מנוקד, ואם לא — ניקוד אוטומטי מול Dicta Nakdan
-- תרגול ניקוד אינטראקטיבי, אות אחר אות, עם לוח בחירת סימני ניקוד (תנועות בלעדיות זו לזו, דגש כתגית עצמאית, שי"ן ימנית/שמאלית)
-- בדיקה מיידית עם ציון לכל מילה (אחוז אותיות שנוקדו נכון) והצגת הטעויות מול הניקוד הנכון
-- עמוד תוצאות מסכם עם ציון כולל, פירוט מילה-מילה ואפשרות להתחיל מחדש
-- Rate limiting (20 בקשות לדקה) על קריאות לניקוד האוטומטי כדי להגן על השירות החיצוני
-- Caching בצד השרת (24 שעות) לפרקי טקסט שנטענו מספריא
-- קרדיט למקורות (ספריא ודיקטא) מוצג באפליקציה
+- Two ways to get text: a ready-made source from Sefaria (Psalms or Torah, by book and chapter), or your own pasted text
+- Automatic detection of whether pasted text already has niqqud, and auto-vowelization through Dicta Nakdan when it doesn't
+- Letter-by-letter interactive niqqud practice with a marks panel (mutually exclusive vowels, dagesh as its own toggle, right/left shin)
+- Instant checking with a per-word score (percentage of letters voweled correctly) and a view of mistakes next to the correct niqqud
+- A results page summarizing overall score with a word-by-word breakdown, plus a restart option
+- Rate limiting (20 requests/minute) on the auto-vowelization calls to keep from hammering the external service
+- Server-side caching (24 hours) for text chapters pulled from Sefaria
+- Credit to both sources (Sefaria and Dicta) shown in the app
 
-## התקנה (Setup)
+## Setup
 
-הפרויקט מחולק ל-`client` (React) ו-`server` (Express), ולכל אחד יש `package.json` נפרד.
+The project is split into `client` (React) and `server` (Express), each with its own `package.json`.
 
 ```bash
 git clone https://github.com/EyalHar/nikud-practice.git
@@ -45,9 +45,9 @@ cd ../client
 npm install
 ```
 
-### משתני סביבה (Environment variables)
+### Environment variables
 
-בתיקיית `server` יש קובץ `.env.example` — יש להעתיק אותו ל-`.env` ולהתאים לפי הצורך:
+The `server` folder has a `.env.example` file — copy it to `.env` and adjust as needed:
 
 ```bash
 cd server
@@ -61,11 +61,11 @@ DICTA_BASE_URL=https://nakdan-u1-0.loadbalancer.dicta.org.il/api
 CLIENT_ORIGIN=http://localhost:5173
 ```
 
-## הרצה (How to Run)
+## How to run
 
-### מצב פיתוח (Development)
+### Development
 
-יש להריץ את השרת ואת ה-client בשני טרמינלים נפרדים:
+Run the server and the client in two separate terminals:
 
 ```bash
 # Terminal 1 - server (http://localhost:4000)
@@ -79,20 +79,20 @@ cd client
 npm run dev
 ```
 
-שרת ה-dev של Vite מגדיר proxy מ-`/api` אל `http://localhost:4000`, כך שה-client פונה לשרת בלי צורך בהגדרת CORS נוספת בפיתוח.
+Vite's dev server proxies `/api` to `http://localhost:4000`, so the client can talk to the server without any extra CORS setup in dev.
 
-### Build לפרודקשן
+### Production build
 
 ```bash
 cd client
-npm run build      # בונה את ה-client לתיקיית dist
-npm run preview    # מריץ preview מקומי של ה-build
+npm run build      # builds the client into dist
+npm run preview    # serves a local preview of the build
 
 cd ../server
-npm start           # מריץ את השרת (node src/index.js)
+npm start           # runs the server (node src/index.js)
 ```
 
-## מבנה הפרויקט (Project Structure)
+## Project structure
 
 ```
 nikud-practice/
@@ -101,16 +101,16 @@ nikud-practice/
 │       ├── pages/               # HomePage, PracticePage, ResultsPage
 │       ├── components/          # layout (AppShell, Header) + shared UI (Button, Spinner...)
 │       ├── hooks/                # useSefariaSources, useNakdanAnalyze
-│       ├── context/              # PracticeSessionContext - מצב התרגול והציון
-│       ├── constants/             # niqqudMarks - הגדרת לוח סימני הניקוד
-│       ├── utils/                  # ניקוד/פירוק אותיות, tokenizer, scoring
-│       └── api/                    # client fetch לשרת
+│       ├── context/              # PracticeSessionContext - practice state and score
+│       ├── constants/             # niqqudMarks - definitions for the niqqud marks panel
+│       ├── utils/                  # niqqud/letter parsing, tokenizer, scoring
+│       └── api/                    # client fetch calls to the server
 └── server/                     # Express API
     └── src/
         ├── routes/               # /api/sources, /api/sefaria, /api/nakdan
         ├── controllers/
-        ├── services/              # שירותי Sefaria ו-Dicta Nakdan
+        ├── services/              # Sefaria and Dicta Nakdan services
         ├── middleware/             # error handler
         ├── utils/                  # cache
-        └── data/                    # קטלוג המקורות (ספרים ופרקים)
+        └── data/                    # source catalog (books and chapters)
 ```
